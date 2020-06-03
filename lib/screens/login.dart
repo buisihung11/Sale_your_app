@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:sale_your_food/screens/home.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -124,7 +125,12 @@ class LoginForm extends StatelessWidget {
             width: 250,
             height: 50,
             child: RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
+              },
               color: Color(0xffff9f0a),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0),
