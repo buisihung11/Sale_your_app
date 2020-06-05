@@ -8,12 +8,12 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints:
               BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
           child: Container(
-            color: Colors.white,
             child: Column(
               children: <Widget>[
                 // Welcome
@@ -22,9 +22,9 @@ class LoginScreen extends StatelessWidget {
                 LoginForm(),
                 // Signup section
                 SignupSection(),
-                SizedBox(
-                  height: 30,
-                )
+                // SizedBox(
+                //   height: 30,
+                // )
               ],
             ),
           ),
@@ -74,6 +74,28 @@ class LoginForm extends StatelessWidget {
       padding: EdgeInsets.all(10),
       child: Column(
         children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Welcome to SYF',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 15),
+                Text(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis pellentesque metus id lacinia.',
+                  style: TextStyle(color: Colors.black38),
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
+          ),
           TextFormField(
             decoration: const InputDecoration(
               icon: Icon(Icons.person),
@@ -202,27 +224,19 @@ class WelcomeLogin extends StatelessWidget {
       width: double.infinity,
       // color: Colors.amber,
       height: MediaQuery.of(context).size.height * 0.4,
-      child: Container(
-        padding: EdgeInsets.only(left: 10, right: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Welcome to SYF',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+      child: Stack(
+        children: <Widget>[
+          Center(
+            child: Opacity(
+              opacity: 1,
+              child: Image.asset(
+                'assets/images/Supermarketworkers.gif',
+                alignment: Alignment.center,
+                fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 15),
-            Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis pellentesque metus id lacinia.',
-              style: TextStyle(color: Colors.black38),
-              textAlign: TextAlign.center,
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
