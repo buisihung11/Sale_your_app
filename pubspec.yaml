@@ -65,9 +65,10 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: assets/roboto/Roboto-Black.ttf
-        - asset: assets/roboto/Roboto-Light.ttf
-        - asset: assets/roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/roboto/Roboto-Black.ttf
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/roboto/Roboto-Light.ttf
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
