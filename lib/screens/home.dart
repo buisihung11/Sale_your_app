@@ -115,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            'Top Restaurant',
+                            'Top market',
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -278,8 +278,10 @@ class HomeSearch extends StatelessWidget {
           },
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Color(0xffff9f0a),
+            )),
         labelText: 'Find restaurant or food',
         labelStyle: TextStyle(color: Colors.black38),
       ),
@@ -301,7 +303,10 @@ class HomeHeader extends StatelessWidget {
             Text('Your location'),
             Row(
               children: <Widget>[
-                Icon(EvilIcons.location),
+                Icon(
+                  EvilIcons.location,
+                  color: Color(0xffff9f0a),
+                ),
                 Text(
                   'HCM, Q9',
                   style: TextStyle(color: Color(0xFF7cd175)),
@@ -311,7 +316,12 @@ class HomeHeader extends StatelessWidget {
           ],
         ),
         Expanded(child: Text('')),
-        IconButton(icon: Icon(AntDesign.shoppingcart), onPressed: () {}),
+        IconButton(
+            icon: Icon(
+              AntDesign.shoppingcart,
+              color: Color(0xffff9f0a),
+            ),
+            onPressed: () {}),
       ],
     );
   }
