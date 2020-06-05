@@ -26,6 +26,7 @@ class FoodItem extends StatelessWidget {
       child: Opacity(
         opacity: availableItem == 0 ? 0.5 : 1,
         child: Stack(
+          overflow: Overflow.clip,
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
@@ -35,7 +36,7 @@ class FoodItem extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(0),
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,6 +44,7 @@ class FoodItem extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                      margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                           color: Colors.pinkAccent,
                           borderRadius: BorderRadius.circular(5)),
@@ -56,7 +58,14 @@ class FoodItem extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      width: 130,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15)),
+                      ),
+                      padding: EdgeInsets.all(10),
                       margin: EdgeInsets.only(bottom: 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
