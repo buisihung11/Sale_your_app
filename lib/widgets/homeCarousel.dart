@@ -18,6 +18,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      overflow: Overflow.visible,
       children: <Widget>[
         Container(
           child: Column(children: [
@@ -69,20 +70,24 @@ class _HomeCarouselState extends State<HomeCarousel> {
             ),
           ]),
         ),
-        Container(
-          padding: EdgeInsets.fromLTRB(5, 5, 15, 5),
-          decoration: BoxDecoration(
-              color: Colors.redAccent,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(50),
-                // bottomLeft: Radius.circular(50),
-                bottomRight: Radius.circular(50),
-              )),
-          child: Text(
-            'HOT\nDEAL',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+        Positioned(
+          top: -10,
+          left: -5,
+          child: Container(
+            padding: EdgeInsets.fromLTRB(5, 5, 15, 5),
+            decoration: BoxDecoration(
+                color: Colors.redAccent,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(50),
+                  // bottomLeft: Radius.circular(50),
+                  bottomRight: Radius.circular(50),
+                )),
+            child: Text(
+              'TOP\nDISCOUNT',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13),
             ),
           ),
         )
