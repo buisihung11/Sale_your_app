@@ -39,7 +39,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
                 );
               }).toList(),
               options: CarouselOptions(
-                  height: 200,
+                  height: 150,
                   autoPlayInterval: Duration(seconds: 5),
                   autoPlay: true,
                   enlargeCenterPage: true,
@@ -80,7 +80,10 @@ class _HomeCarouselState extends State<HomeCarousel> {
               )),
           child: Text(
             'HOT\nDEAL',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],

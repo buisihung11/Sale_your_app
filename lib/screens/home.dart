@@ -335,33 +335,68 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Column(
-          children: <Widget>[
-            Text('Your location'),
-            Row(
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Column(
               children: <Widget>[
-                Icon(
-                  EvilIcons.location,
-                  color: Color(0xffff9f0a),
+                Text('Your location'),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      EvilIcons.location,
+                      color: Color(0xffff9f0a),
+                    ),
+                    Text(
+                      'HCM, Q9',
+                      style: TextStyle(color: Color(0xFF7cd175)),
+                    )
+                  ],
                 ),
-                Text(
-                  'HCM, Q9',
-                  style: TextStyle(color: Color(0xFF7cd175)),
-                )
               ],
             ),
-          ],
-        ),
-        Expanded(child: Text('')),
-        IconButton(
-            icon: Icon(
-              AntDesign.shoppingcart,
-              color: Color(0xffff9f0a),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(70),
+              ),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'SYF',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
             ),
-            onPressed: () {}),
-      ],
+          ),
+          Expanded(
+            flex: 1,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                  icon: Icon(
+                    AntDesign.shoppingcart,
+                    color: Color(0xffff9f0a),
+                  ),
+                  onPressed: () {}),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
