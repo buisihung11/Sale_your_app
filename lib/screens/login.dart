@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints:
-              BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+              BoxConstraints(minHeight: MediaQuery.of(context).size.height),
           child: Container(
             child: Column(
               children: <Widget>[
@@ -171,7 +171,7 @@ class LoginForm extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => RootScreen()),
                 );
               },
               color: Color(0xffff9f0a),
