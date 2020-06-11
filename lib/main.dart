@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sale_your_food/screens/cart.dart';
 import 'package:sale_your_food/screens/login.dart';
+
+import 'screens/checkout.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginScreen(),
+      home: CheckOutScreen(),
     );
   }
 }
