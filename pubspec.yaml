@@ -26,6 +26,7 @@ dependencies:
   flutter_icons: ^1.1.0
   carousel_slider: ^2.1.0
   smooth_star_rating: 1.1.1
+  material_design_icons_flutter: ^3.2.3895
 
 
   # The following adds the Cupertino Icons font to your application.
