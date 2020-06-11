@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
 
+import 'checkout.dart';
+
 class CartScreen extends StatelessWidget {
   const CartScreen({Key key}) : super(key: key);
   @override
@@ -20,7 +22,11 @@ class CartScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
         ),
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {}),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            }),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -488,7 +494,10 @@ class CartScreen extends StatelessWidget {
               child: new MaterialButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => CheckOutScreen()));
+                },
                 height: MediaQuery.of(context).size.width / 7,
                 child: new Text(
                   "Check Out",
@@ -497,7 +506,7 @@ class CartScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
-                color: Colors.red,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ],
