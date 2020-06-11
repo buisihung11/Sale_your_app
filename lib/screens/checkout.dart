@@ -1,9 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
@@ -24,7 +22,9 @@ class CheckOutScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
         ),
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {}),
+        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
+          Navigator.of(context).pop();
+        }),
         centerTitle: true,
       ),
       body: Container(
