@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Container(
-                    height: 160,
+                    height: 200,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
@@ -132,7 +132,19 @@ class HomeScreen extends StatelessWidget {
                             height: 150,
                             fit: BoxFit.fill,
                           ),
-                          availableItem: 1,
+                          availableItem: 7,
+                          discount: 0.35,
+                          price: 10,
+                        ),
+                        FoodItem(
+                          name: 'Water bottle',
+                          image: Image.asset(
+                            'assets/images/water_bottle.jpg',
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.fill,
+                          ),
+                          availableItem: 20,
                           discount: 0.35,
                           price: 10,
                         ),
