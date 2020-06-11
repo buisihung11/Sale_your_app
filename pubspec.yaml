@@ -70,6 +70,8 @@ flutter:
         - asset: assets/fonts/roboto/Roboto-Regular.ttf
         - asset: assets/fonts/roboto/Roboto-Light.ttf
         - asset: assets/fonts/roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/roboto/Roboto-Italic.ttf
+        - asset: assets/fonts/roboto/Roboto-BoldItalic.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
