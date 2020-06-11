@@ -1,190 +1,242 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:sale_your_food/screens/cart.dart';
+import 'package:sale_your_food/widgets/bottomBar.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
 import 'package:sale_your_food/widgets/homeCarousel.dart';
 import 'package:sale_your_food/widgets/restaunrant.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+class RootScreen extends StatefulWidget {
+  const RootScreen({Key key}) : super(key: key);
+
+  @override
+  _RootScreenState createState() => _RootScreenState();
+}
+
+class _RootScreenState extends State<RootScreen> {
+  static const List<Widget> _screens = <Widget>[
+    Text(
+      'Page 2',
+    ),
+    HomeScreen(),
+    Text(
+      'Page 3',
+    ),
+  ];
+
+  int _currentIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              // Header
-              HomeHeader(),
-              SizedBox(height: 10),
-              // Search
-              HomeSearch(),
-              SizedBox(height: 15),
-              // Banner Carousel
-              HomeCarousel(),
-              // Categories
-              Categories(),
-              SizedBox(height: 15),
-              // Food near you
-              Align(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            'Food near you',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            'View All',
-                            style: TextStyle(color: Colors.blue),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Container(
-                      height: 160,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: <Widget>[
-                          FoodItem(
-                            name: 'Bread',
-                            image: Image.asset(
-                              'assets/images/bread.jpg',
-                              width: 150,
-                              height: 150,
-                              fit: BoxFit.fill,
-                            ),
-                            availableItem: 1,
-                            discount: 0.45,
-                            price: 10,
-                          ),
-                          FoodItem(
-                            name: 'Cake',
-                            image: Image.asset(
-                              'assets/images/cake.jpg',
-                              width: 150,
-                              height: 150,
-                              fit: BoxFit.fill,
-                            ),
-                            availableItem: 0,
-                            discount: 0.45,
-                            price: 20,
-                          ),
-                          FoodItem(
-                            name: 'Water bottle',
-                            image: Image.asset(
-                              'assets/images/water_bottle.jpg',
-                              width: 150,
-                              height: 150,
-                              fit: BoxFit.fill,
-                            ),
-                            availableItem: 1,
-                            discount: 0.35,
-                            price: 10,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20),
-              // Top Restaurant
-              Align(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            'Top Restaurant',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            'View All',
-                            style: TextStyle(color: Colors.blue),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 15),
-                    Container(
-                      height: 240,
-                      margin: const EdgeInsets.only(
-                        top: 10,
-                        bottom: 10,
-                      ),
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: <Widget>[
-                          RestaurantItem(
-                            name: 'Vinmart',
-                            image: Image.asset(
-                              'assets/images/restaurant1.jpg',
-                              width: 300,
-                              height: 170,
-                              fit: BoxFit.cover,
-                            ),
-                            address: 'Tay Hoa, Q9',
-                            rating: 5,
-                          ),
-                          RestaurantItem(
-                            name: 'Vietnamese Restaurant',
-                            image: Image.asset(
-                              'assets/images/restaurant2.jpg',
-                              width: 300,
-                              height: 170,
-                              fit: BoxFit.cover,
-                            ),
-                            address: 'Dien Bien Phu, Q.Binh Thanh',
-                            rating: 4.5,
-                          ),
-                          RestaurantItem(
-                            name: 'Bread',
-                            image: Image.asset(
-                              'assets/images/restaurant3.jpg',
-                              width: 300,
-                              height: 170,
-                              fit: BoxFit.cover,
-                            ),
-                            address: 'Le Van Viet, Q9',
-                            rating: 3.5,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 15),
-                  ],
-                ),
-              ),
+      body: _screens.elementAt(_currentIndex),
+      bottomNavigationBar: BottomBar(
+        currentIndex: _currentIndex,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
 
-              SizedBox(
-                height: 15,
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            // Header
+            HomeHeader(),
+            SizedBox(height: 10),
+            // Search
+            HomeSearch(),
+            SizedBox(height: 15),
+            // Banner Carousel
+            HomeCarousel(),
+            // Categories
+            Categories(),
+            SizedBox(height: 15),
+            // Food near you
+            Align(
+              alignment: Alignment.topLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Food near you',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          'View All',
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    height: 200,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        FoodItem(
+                          name: 'Bread',
+                          image: Image.asset(
+                            'assets/images/bread.jpg',
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.fill,
+                          ),
+                          availableItem: 1,
+                          discount: 0.45,
+                          price: 10,
+                        ),
+                        FoodItem(
+                          name: 'Cake',
+                          image: Image.asset(
+                            'assets/images/cake.jpg',
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.fill,
+                          ),
+                          availableItem: 0,
+                          discount: 0.45,
+                          price: 20,
+                        ),
+                        FoodItem(
+                          name: 'Water bottle',
+                          image: Image.asset(
+                            'assets/images/water_bottle.jpg',
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.fill,
+                          ),
+                          availableItem: 7,
+                          discount: 0.35,
+                          price: 10,
+                        ),
+                        FoodItem(
+                          name: 'Water bottle',
+                          image: Image.asset(
+                            'assets/images/water_bottle.jpg',
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.fill,
+                          ),
+                          availableItem: 20,
+                          discount: 0.35,
+                          price: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 20),
+            // Top Restaurant
+            Align(
+              alignment: Alignment.topLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Top market',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          'View All',
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  Container(
+                    height: 240,
+                    margin: const EdgeInsets.only(
+                      top: 10,
+                      bottom: 10,
+                    ),
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        RestaurantItem(
+                          name: 'Vinmart',
+                          image: Image.asset(
+                            'assets/images/restaurant1.jpg',
+                            width: 300,
+                            height: 170,
+                            fit: BoxFit.cover,
+                          ),
+                          address: 'Tay Hoa, Q9',
+                          rating: 5,
+                        ),
+                        RestaurantItem(
+                          name: 'Vietnamese Restaurant',
+                          image: Image.asset(
+                            'assets/images/restaurant2.jpg',
+                            width: 300,
+                            height: 170,
+                            fit: BoxFit.cover,
+                          ),
+                          address: 'Dien Bien Phu, Q.Binh Thanh',
+                          rating: 4.5,
+                        ),
+                        RestaurantItem(
+                          name: 'Bread',
+                          image: Image.asset(
+                            'assets/images/restaurant3.jpg',
+                            width: 300,
+                            height: 170,
+                            fit: BoxFit.cover,
+                          ),
+                          address: 'Le Van Viet, Q9',
+                          rating: 3.5,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: 15,
+            ),
+          ],
         ),
       ),
     );
@@ -278,8 +330,10 @@ class HomeSearch extends StatelessWidget {
           },
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Color(0xffff9f0a),
+            )),
         labelText: 'Find restaurant or food',
         labelStyle: TextStyle(color: Colors.black38),
       ),
@@ -294,25 +348,71 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Column(
-          children: <Widget>[
-            Text('Your location'),
-            Row(
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Column(
               children: <Widget>[
-                Icon(EvilIcons.location),
-                Text(
-                  'HCM, Q9',
-                  style: TextStyle(color: Color(0xFF7cd175)),
-                )
+                Text('Your location'),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      EvilIcons.location,
+                      color: Color(0xffff9f0a),
+                    ),
+                    Text(
+                      'HCM, Q9',
+                      style: TextStyle(color: Color(0xFF7cd175)),
+                    )
+                  ],
+                ),
               ],
             ),
-          ],
-        ),
-        Expanded(child: Text('')),
-        IconButton(icon: Icon(AntDesign.shoppingcart), onPressed: () {}),
-      ],
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(70),
+              ),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'SYF',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                  icon: Icon(
+                    AntDesign.shoppingcart,
+                    color: Color(0xffff9f0a),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => CartScreen()));
+                  }),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
