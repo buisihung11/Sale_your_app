@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:sale_your_food/screens/category.dart';
-=======
-import 'package:sale_your_food/screens/cart.dart';
->>>>>>> upstream/master
 import 'package:sale_your_food/screens/login.dart';
 
 import 'screens/checkout.dart';
@@ -37,7 +33,6 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-<<<<<<< HEAD
       home: CategoryScreen(),
     );
   }
@@ -124,9 +119,6 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-=======
-      home: CheckOutScreen(),
->>>>>>> upstream/master
     );
   }
 }
