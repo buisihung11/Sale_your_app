@@ -9,8 +9,8 @@ class CheckOutScreen extends StatelessWidget {
   const CheckOutScreen({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    bool changeColor = false;
-    double imageWidth = MediaQuery.of(context).size.width / 4;
+    // bool changeColor = false;
+    double imageWidth = MediaQuery.of(context).size.width / 5;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -34,14 +34,14 @@ class CheckOutScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(7),
                   child: Text(
                     "Delivery To",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(7),
                   child: Text(
                     "Change Address",
                     style: TextStyle(
@@ -62,7 +62,7 @@ class CheckOutScreen extends StatelessWidget {
                 //Image
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(7),
                     child: Container(
                       height: imageWidth,
                       width: imageWidth,
@@ -98,7 +98,7 @@ class CheckOutScreen extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Container(
-                              padding: EdgeInsets.only(bottom: imageWidth / 10),
+                              padding: EdgeInsets.only(bottom: imageWidth / 13),
                               child: Text(
                                 "Note about the address",
                                 style: TextStyle(fontSize: 18),
@@ -145,7 +145,7 @@ class CheckOutScreen extends StatelessWidget {
               children: <Widget>[
                 Container(
                   padding:
-                      EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+                      EdgeInsets.all(7),
                   child: Text(
                     "Order Detial",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -159,14 +159,14 @@ class CheckOutScreen extends StatelessWidget {
               color: Colors.black,
             ),
             Container(
-              height: MediaQuery.of(context).size.height / 3,
+              height: MediaQuery.of(context).size.height / 3.5,
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    CartItem(imageWidth: imageWidth),
-                    CartItem(imageWidth: imageWidth),
-                    CartItem(imageWidth: imageWidth),
-                    CartItem(imageWidth: imageWidth),
+                    CartItem(imageWidth: imageWidth,image: "assets/images/bread.jpg"),
+                    CartItem(imageWidth: imageWidth,image: "assets/images/breed.jpg"),
+                    CartItem(imageWidth: imageWidth,image: "assets/images/cake.jpg"),
+                    CartItem(imageWidth: imageWidth,image: "assets/images/water_bottle.jpg"),
                   ],
                 ),
               ),
@@ -176,7 +176,7 @@ class CheckOutScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(7),
                   child: Text(
                     "Payment Option",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -333,9 +333,11 @@ class CartItem extends StatelessWidget {
   const CartItem({
     Key key,
     @required this.imageWidth,
+    @required this.image,
   }) : super(key: key);
 
   final double imageWidth;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -347,12 +349,12 @@ class CartItem extends StatelessWidget {
             margin: EdgeInsets.only(top: 5),
             padding: EdgeInsets.all(10),
             child: Container(
-              height: imageWidth / 1.5,
-              width: imageWidth / 1.5,
+              height: imageWidth / 1.2,
+              width: imageWidth / 1.2,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/breed.jpg'),
+                  image: AssetImage(image),
                   fit: BoxFit.cover,
                 ),
                 shape: BoxShape.rectangle,
