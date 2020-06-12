@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:sale_your_food/constants.dart';
 
-
-
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key key}) : super(key: key);
 
@@ -22,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
               children: <Widget>[
                 CircleAvatar(
                   radius: kSpacingUnit.w * 5,
-                  backgroundImage: AssetImage('assets/images/sunny.png'),
+                  backgroundImage: AssetImage('assets/images/cake.jpg'),
                 ),
                 Align(
                   alignment: Alignment.bottomRight,
@@ -59,30 +57,50 @@ class ProfileScreen extends StatelessWidget {
       ],
     );
 
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: kSpacingUnit.w * 4),
-          header,
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                ProfileListItem(
-                    icon: LineAwesomeIcons.history, text: 'Purchase History'),
-                ProfileListItem(icon: LineAwesomeIcons.filter, text: 'Filter'),
-                ProfileListItem(
-                    icon: LineAwesomeIcons.question_circle,
-                    text: 'Help & Support'),
-                ProfileListItem(icon: LineAwesomeIcons.cog, text: 'Settings'),
-                ProfileListItem(
-                  icon: LineAwesomeIcons.alternate_sign_out,
-                  text: 'Logout',
-                  hasNavigation: false,
-                ),
-              ],
+    return Theme(
+      data: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'RobotoMono',
+        primaryColor: kLightPrimaryColor,
+        canvasColor: kLightPrimaryColor,
+        backgroundColor: kLightSecondaryColor,
+        accentColor: kAccentColor,
+        iconTheme: ThemeData.dark().iconTheme.copyWith(
+              color: kDarkSecondaryColor,
             ),
-          ),
-        ],
+        textTheme: ThemeData.dark().textTheme.apply(
+              fontFamily: 'RobotoMono',
+              bodyColor: kDarkSecondaryColor,
+              displayColor: kDarkSecondaryColor,
+            ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      child: Scaffold(
+        body: Column(
+          children: <Widget>[
+            SizedBox(height: kSpacingUnit.w * 4),
+            header,
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  ProfileListItem(
+                      icon: LineAwesomeIcons.history, text: 'Purchase History'),
+                  ProfileListItem(
+                      icon: LineAwesomeIcons.filter, text: 'Filter'),
+                  ProfileListItem(
+                      icon: LineAwesomeIcons.question_circle,
+                      text: 'Help & Support'),
+                  ProfileListItem(icon: LineAwesomeIcons.cog, text: 'Settings'),
+                  ProfileListItem(
+                    icon: LineAwesomeIcons.alternate_sign_out,
+                    text: 'Logout',
+                    hasNavigation: false,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
