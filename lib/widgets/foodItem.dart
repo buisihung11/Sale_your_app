@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:sale_your_food/constrants.dart';
-import 'package:sale_your_food/screens/category.dart';
 
 class FoodItem extends StatelessWidget {
   final String name;
