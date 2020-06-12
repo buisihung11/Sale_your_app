@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sale_your_food/screens/login.dart';
+import 'package:sale_your_food/screens/details.dart';
 
 const kSpacingUnit = 10;
 const kDarkPrimaryColor = Color(0xFF212121);
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xffff9f0a),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginScreen(),
+      home: DetailScreen(),
     );
   }
 }
