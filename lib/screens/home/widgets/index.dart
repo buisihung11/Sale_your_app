@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:sale_your_food/screens/category.dart';
 
 import '../../cart.dart';
 
@@ -65,11 +66,19 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        IconButton(icon: icon, onPressed: () {}),
-        Text(title),
-      ],
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+              builder: (BuildContext context) => CategoryScreen()),
+        );
+      },
+      child: Column(
+        children: <Widget>[
+          icon,
+          Text(title),
+        ],
+      ),
     );
   }
 }
@@ -161,19 +170,30 @@ class HomeHeader extends StatelessWidget {
             flex: 1,
             child: Align(
               alignment: Alignment.centerRight,
-              child: IconButton(
-                  icon: Icon(
-                    AntDesign.shoppingcart,
-                    color: Color(0xffff9f0a),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => CartScreen()));
-                  }),
+              child: CartButton(),
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+class CartButton extends StatelessWidget {
+  const CartButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        icon: Icon(
+          AntDesign.shoppingcart,
+          color: Color(0xffff9f0a),
+        ),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => CartScreen()));
+        });
   }
 }
