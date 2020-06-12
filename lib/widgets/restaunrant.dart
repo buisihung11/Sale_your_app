@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:sale_your_food/screens/details.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class RestaurantItem extends StatelessWidget {
@@ -20,7 +21,9 @@ class RestaurantItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print('Choose restaunrant $name');
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => DetailScreen(),
+        ));
       },
       child: Padding(
         padding: const EdgeInsets.only(
@@ -40,7 +43,7 @@ class RestaurantItem extends StatelessWidget {
               ),
             ),
             Container(
-              height: 50,
+              height: 60,
               width: 300,
               padding: EdgeInsets.all(5),
               decoration: BoxDecoration(
@@ -62,11 +65,34 @@ class RestaurantItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Text(
-                    name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            EvilIcons.location,
+                            color: Colors.orange,
+                          ),
+                          Text(
+                            "3km",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: TextStyle(
+                              color: Colors.grey[300],
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
