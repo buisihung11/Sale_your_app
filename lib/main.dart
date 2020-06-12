@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sale_your_food/screens/cart.dart';
 import 'package:sale_your_food/screens/login.dart';
 
 const kSpacingUnit = 10;
@@ -8,7 +7,6 @@ const kDarkSecondaryColor = Color(0xFF373737);
 const kLightPrimaryColor = Color(0xFFFFFFFF);
 const kLightSecondaryColor = Color(0xFFF3F7FB);
 const kAccentColor = Color(0xFFFFC107);
-import 'screens/checkout.dart';
 
 
 void main() {
@@ -26,7 +24,7 @@ class MyApp extends StatelessWidget {
 theme: ThemeData(
         brightness: Brightness.dark,
         fontFamily: 'RobotoMono',
-        primaryColor: kLightPrimaryColor,
+        // primaryColor: kLightPrimaryColor,
         canvasColor: kLightPrimaryColor,
         backgroundColor: kLightSecondaryColor,
         accentColor: kAccentColor,

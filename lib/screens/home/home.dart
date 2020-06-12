@@ -6,6 +6,8 @@ import 'package:sale_your_food/widgets/foodItem.dart';
 import 'package:sale_your_food/widgets/homeCarousel.dart';
 import 'package:sale_your_food/widgets/restaunrant.dart';
 
+import '../profile.dart';
+
 class RootScreen extends StatefulWidget {
   const RootScreen({Key key}) : super(key: key);
 
@@ -19,9 +21,7 @@ class _RootScreenState extends State<RootScreen> {
       'Page 2',
     ),
     HomeScreen(),
-    Text(
-      'Page 3',
-    ),
+    ProfileScreen(),
   ];
 
   int _currentIndex = 1;
@@ -222,4 +222,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
