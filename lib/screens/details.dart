@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sale_your_food/screens/home.dart';
 
 class DetailScreen extends StatelessWidget {
   final TextStyle _textStyle =
@@ -14,10 +13,7 @@ class DetailScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0.0,
           centerTitle: true,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Color(0xFF545D68)),
-            onPressed: () {},
-          ),
+          leading: BackButton(),
           title: Text('Pickup',
               style: TextStyle(
                   fontFamily: 'Varela',
