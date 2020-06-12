@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:sale_your_food/screens/home.dart';
+
+import 'home/home.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -12,7 +13,7 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints:
-              BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
+              BoxConstraints(minHeight: MediaQuery.of(context).size.height),
           child: Container(
             child: Column(
               children: <Widget>[
@@ -79,17 +80,38 @@ class LoginForm extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  'Welcome to SYF',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                RichText(
+                  text: TextSpan(children: <TextSpan>[
+                    TextSpan(
+                      text: 'Welcome to ',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Save your food',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        color: Color(0xffff9f0a),
+                      ),
+                    ),
+                  ]),
                 ),
+                // Text(
+                //   'Welcome to Save your food',
+                //   textAlign: TextAlign.center,
+                //   style: TextStyle(
+                //     fontSize: 20,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
                 SizedBox(height: 15),
                 Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis pellentesque metus id lacinia.',
+                  'Save food together!',
                   style: TextStyle(color: Colors.black38),
                   textAlign: TextAlign.center,
                 )
@@ -150,7 +172,7 @@ class LoginForm extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => RootScreen()),
                 );
               },
               color: Color(0xffff9f0a),

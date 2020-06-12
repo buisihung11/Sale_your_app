@@ -22,7 +22,9 @@ class CheckOutScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
         ),
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {}),
+        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
+          Navigator.of(context).pop();
+        }),
         centerTitle: true,
       ),
       body: Container(

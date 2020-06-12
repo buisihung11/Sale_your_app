@@ -26,6 +26,10 @@ dependencies:
   flutter_icons: ^1.1.0
   carousel_slider: ^2.1.0
   smooth_star_rating: 1.1.1
+  material_design_icons_flutter: ^3.2.3895
+  line_awesome_flutter: ^1.0.1
+  flutter_screenutil: ^1.0.2
+  animated_theme_switcher: ^1.0.5
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -69,6 +73,8 @@ flutter:
         - asset: assets/fonts/roboto/Roboto-Regular.ttf
         - asset: assets/fonts/roboto/Roboto-Light.ttf
         - asset: assets/fonts/roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/roboto/Roboto-Italic.ttf
+        - asset: assets/fonts/roboto/Roboto-BoldItalic.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
