@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:sale_your_food/screens/cart.dart';
 import 'package:sale_your_food/widgets/bottomBar.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
 import 'package:sale_your_food/widgets/homeCarousel.dart';
@@ -404,7 +405,10 @@ class HomeHeader extends StatelessWidget {
                     AntDesign.shoppingcart,
                     color: Color(0xffff9f0a),
                   ),
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => CartScreen()));
+                  }),
             ),
           ),
         ],
