@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:sale_your_food/widgets/foodItem.dart';
-
 import 'checkout.dart';
 
 class CartScreen extends StatelessWidget {
@@ -22,11 +20,7 @@ class CartScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),
         ),
-        leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            }),
+        leading: BackButton(),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -515,3 +509,4 @@ class CartScreen extends StatelessWidget {
     );
   }
 }
+

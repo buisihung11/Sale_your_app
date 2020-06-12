@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:sale_your_food/constrants.dart';
+import 'package:sale_your_food/screens/category.dart';
 
 class FoodItem extends StatelessWidget {
   final String name;
@@ -8,7 +10,7 @@ class FoodItem extends StatelessWidget {
   final double price;
   final double discount;
   final int availableItem;
-  final Widget image;
+  final String image;
   const FoodItem({
     Key key,
     this.name,
@@ -50,7 +52,12 @@ class FoodItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: Opacity(
                   opacity: 0.7,
-                  child: image,
+                  child: Image.asset(
+                    image,
+                    width: 170,
+                    height: 190,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               Positioned(
@@ -85,7 +92,7 @@ class FoodItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Container(
-                          width: 150,
+                          width: 170,
                           decoration: BoxDecoration(
                             color: Colors.black54,
                             borderRadius: BorderRadius.only(
@@ -98,27 +105,39 @@ class FoodItem extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
-                                  Text(
-                                    name,
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
+                                  Container(
+                                    width: 90,
+                                    child: Text(
+                                      name,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
-                                  Text(
-                                    "3km",
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                      color: Colors.grey[300],
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                  Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        EvilIcons.location,
+                                        color: Colors.orange,
+                                      ),
+                                      Text(
+                                        "3km",
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          color: Colors.grey[300],
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:sale_your_food/screens/cart.dart';
+import 'package:sale_your_food/screens/home/widgets/index.dart';
 import 'package:sale_your_food/widgets/bottomBar.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
 import 'package:sale_your_food/widgets/homeCarousel.dart';
 import 'package:sale_your_food/widgets/restaunrant.dart';
+
+import '../profile.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({Key key}) : super(key: key);
@@ -20,9 +21,7 @@ class _RootScreenState extends State<RootScreen> {
       'Page 2',
     ),
     HomeScreen(),
-    Text(
-      'Page 3',
-    ),
+    ProfileScreen(),
   ];
 
   int _currentIndex = 1;
@@ -60,7 +59,6 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             // Header
             HomeHeader(),
-            SizedBox(height: 10),
             // Search
             HomeSearch(),
             SizedBox(height: 15),
@@ -103,51 +101,33 @@ class HomeScreen extends StatelessWidget {
                       children: <Widget>[
                         FoodItem(
                           name: 'Bread',
-                          image: Image.asset(
-                            'assets/images/bread.jpg',
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.fill,
-                          ),
+                          image: 'assets/images/bread.jpg',
                           availableItem: 1,
                           discount: 0.45,
                           price: 10,
                         ),
                         FoodItem(
                           name: 'Cake',
-                          image: Image.asset(
-                            'assets/images/cake.jpg',
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.fill,
-                          ),
+                          image: 'assets/images/cake.jpg',
                           availableItem: 0,
                           discount: 0.45,
                           price: 20,
                         ),
                         FoodItem(
                           name: 'Water bottle',
-                          image: Image.asset(
-                            'assets/images/water_bottle.jpg',
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.fill,
-                          ),
+                          image: 'assets/images/water_bottle.jpg',
                           availableItem: 7,
                           discount: 0.35,
                           price: 10,
+                          unit: "bottle",
                         ),
                         FoodItem(
                           name: 'Water bottle',
-                          image: Image.asset(
-                            'assets/images/water_bottle.jpg',
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.fill,
-                          ),
+                          image: 'assets/images/water_bottle.jpg',
                           availableItem: 20,
                           discount: 0.35,
                           price: 10,
+                          unit: "bottle",
                         ),
                       ],
                     ),
@@ -168,7 +148,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'Top market',
+                          'Market around you',
                           textAlign: TextAlign.start,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -238,180 +218,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class Categories extends StatelessWidget {
-  const Categories({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: CategoryItem(
-              title: 'Drink',
-              icon: Icon(
-                SimpleLineIcons.cup,
-                size: 32,
-                color: Color(0xFFcc821e),
-              )),
-        ),
-        Expanded(
-          child: CategoryItem(
-              title: 'Meal',
-              icon: Icon(
-                MaterialCommunityIcons.pig,
-                size: 32,
-                color: Color(0xFFf3cb67),
-              )),
-        ),
-        Expanded(
-          child: CategoryItem(
-              title: 'Fish',
-              icon: Icon(
-                MaterialCommunityIcons.fish,
-                size: 32,
-                color: Color(0xFF67f3e2),
-              )),
-        ),
-        Expanded(
-          child: CategoryItem(
-              title: 'Vegetables',
-              icon: Icon(
-                MaterialCommunityIcons.food_apple,
-                size: 32,
-                color: Colors.deepOrange,
-              )),
-        ),
-      ],
-    );
-  }
-}
-
-class CategoryItem extends StatelessWidget {
-  final String title;
-  final Icon icon;
-  const CategoryItem({
-    Key key,
-    @required this.title,
-    @required this.icon,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        IconButton(icon: icon, onPressed: () {}),
-        Text(title),
-      ],
-    );
-  }
-}
-
-class HomeSearch extends StatelessWidget {
-  const HomeSearch({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        prefixIcon: Icon(FontAwesome.search),
-        suffixIcon: IconButton(
-          icon: Icon(MaterialIcons.clear),
-          onPressed: () {
-            print('Clear input');
-          },
-        ),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(
-              color: Color(0xffff9f0a),
-            )),
-        labelText: 'Find restaurant or food',
-        labelStyle: TextStyle(color: Colors.black38),
-      ),
-    );
-  }
-}
-
-class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Column(
-              children: <Widget>[
-                Text('Your location'),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      EvilIcons.location,
-                      color: Color(0xffff9f0a),
-                    ),
-                    Text(
-                      'HCM, Q9',
-                      style: TextStyle(color: Color(0xFF7cd175)),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              width: 70,
-              height: 70,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(70),
-              ),
-              child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'SYF',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                  icon: Icon(
-                    AntDesign.shoppingcart,
-                    color: Color(0xffff9f0a),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => CartScreen()));
-                  }),
-            ),
-          ),
-        ],
       ),
     );
   }

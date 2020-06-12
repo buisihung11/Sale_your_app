@@ -8,11 +8,9 @@ const kLightPrimaryColor = Color(0xFFFFFFFF);
 const kLightSecondaryColor = Color(0xFFF3F7FB);
 const kAccentColor = Color(0xFFFFC107);
 
-
 void main() {
   runApp(MyApp());
 }
-  
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -21,25 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: 'RobotoMono',
-        primaryColor: kLightPrimaryColor,
-        canvasColor: kLightPrimaryColor,
-        backgroundColor: kLightSecondaryColor,
-        accentColor: kAccentColor,
-        iconTheme: ThemeData.dark().iconTheme.copyWith(
-              color: kDarkSecondaryColor,
-            ),
-        textTheme: ThemeData.dark().textTheme.apply(
-              fontFamily: 'RobotoMono',
-              bodyColor: kDarkSecondaryColor,
-              displayColor: kDarkSecondaryColor,
-            ),
+      theme: ThemeData(
+        fontFamily: 'Roboto',
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
+        primaryColor: Color(0xffff9f0a),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: LoginScreen(),

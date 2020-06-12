@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sale_your_food/screens/home/widgets/index.dart';
 import 'package:sale_your_food/widgets/filterBar.dart';
 import 'package:sale_your_food/widgets/hotncoldBar.dart';
 import 'package:sale_your_food/widgets/listProducts.dart';
@@ -11,11 +11,6 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   toolbarOpacity: 0,
-      //   iconTheme: IconThemeData(color: Colors.black),
-      //   elevation: 0,
-      // ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -87,7 +82,7 @@ class CategoryHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Icon(Icons.arrow_back_ios),
+        BackButton(),
         Container(
           alignment: Alignment.bottomCenter,
           height: 50,
@@ -109,7 +104,7 @@ class CategoryHeader extends StatelessWidget {
             ),
           ),
         ),
-        Icon(Icons.shopping_cart),
+        CartButton(),
       ],
     );
   }
