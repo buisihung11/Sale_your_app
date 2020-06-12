@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sale_your_food/screens/home.dart';
 
 class DetailScreen extends StatelessWidget {
   final TextStyle _textStyle =
