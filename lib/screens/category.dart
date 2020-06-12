@@ -11,7 +11,7 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
+      body: Container(
         child: SafeArea(
           child: Column(
             children: <Widget>[
@@ -62,8 +62,11 @@ class CategoryScreen extends StatelessWidget {
                   FilterBar()
                 ],
               ),
-              SingleChildScrollView(
-                  child: ListProducts())
+              Container(
+                height: 370,
+                child: SingleChildScrollView(
+                    child: ListProducts()),
+              )
             ],
           ),
         ),
