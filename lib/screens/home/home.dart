@@ -5,6 +5,8 @@ import 'package:sale_your_food/widgets/bottomBar.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
 import 'package:sale_your_food/widgets/homeCarousel.dart';
 import 'package:sale_your_food/widgets/restaunrant.dart';
+import 'package:showcaseview/showcase.dart';
+import 'package:showcaseview/showcase_widget.dart';
 
 import '../profile.dart';
 
@@ -20,7 +22,7 @@ class _RootScreenState extends State<RootScreen> {
     Text(
       'Page 2',
     ),
-    HomeScreen(),
+    ShowCaseHomeScreen(),
     ProfileScreen(),
   ];
 
@@ -45,10 +47,47 @@ class _RootScreenState extends State<RootScreen> {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class ShowCaseHomeScreen extends StatelessWidget {
+  const ShowCaseHomeScreen({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ShowCaseWidget(
+        builder: Builder(builder: (context) => HomeScreen()),
+      ),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key key,
   }) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey _one = GlobalKey();
+  final GlobalKey _two = GlobalKey();
+  final GlobalKey _three = GlobalKey();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => ShowCaseWidget.of(context).startShowCase(
+        [
+          _one,
+          _two,
+          _three,
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,12 +97,26 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             // Header
-            HomeHeader(),
-            // Search
-            HomeSearch(),
-            SizedBox(height: 15),
+            Showcase(
+              key: _one,
+              description: "Search your needed food here.",
+              child: Container(
+                child: Column(
+                  children: <Widget>[
+                    HomeHeader(),
+                    // Search
+                    HomeSearch(),
+                    SizedBox(height: 15),
+                  ],
+                ),
+              ),
+            ),
             // Banner Carousel
-            HomeCarousel(),
+            Showcase(
+              key: _two,
+              description: "All hot discount will be apear here",
+              child: HomeCarousel(),
+            ),
             // Categories
             Categories(),
             SizedBox(height: 15),
