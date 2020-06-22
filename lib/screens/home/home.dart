@@ -4,6 +4,7 @@ import 'package:sale_your_food/screens/home/widgets/index.dart';
 import 'package:sale_your_food/widgets/bottomBar.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
 import 'package:sale_your_food/widgets/homeCarousel.dart';
+import 'package:sale_your_food/widgets/homeSection.dart';
 import 'package:sale_your_food/widgets/restaunrant.dart';
 import 'package:showcaseview/showcase.dart';
 import 'package:showcaseview/showcase_widget.dart';
@@ -121,71 +122,17 @@ class _HomeScreenState extends State<HomeScreen> {
             Categories(),
             SizedBox(height: 15),
             // Food near you
+            // Align(
+            //   alignment: Alignment.topLeft,
+            //   child: HomeSection(
+            //     listItem: getRandomList(),
+            //   ),
+            // ),
             Align(
               alignment: Alignment.topLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Food near you',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        Text(
-                          'View All',
-                          style: TextStyle(color: Colors.blue),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    height: 200,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        FoodItem(
-                          name: 'Bread',
-                          image: 'assets/images/bread.jpg',
-                          availableItem: 1,
-                          discount: 0.45,
-                          price: 10,
-                        ),
-                        FoodItem(
-                          name: 'Cake',
-                          image: 'assets/images/cake.jpg',
-                          availableItem: 0,
-                          discount: 0.45,
-                          price: 20,
-                        ),
-                        FoodItem(
-                          name: 'Water bottle',
-                          image: 'assets/images/water_bottle.jpg',
-                          availableItem: 7,
-                          discount: 0.35,
-                          price: 10,
-                          unit: "bottle",
-                        ),
-                        FoodItem(
-                          name: 'Water bottle',
-                          image: 'assets/images/water_bottle.jpg',
-                          availableItem: 20,
-                          discount: 0.35,
-                          price: 10,
-                          unit: "bottle",
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              child: HomeSection(
+                title: "Base on your saving",
+                listItem: getRandomList(),
               ),
             ),
             SizedBox(height: 20),
@@ -275,3 +222,42 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+List<Widget> getRandomList() {
+  list.shuffle();
+  List<Widget> newList = List.from(list);
+  return newList;
+}
+
+var list = [
+  FoodItem(
+    name: 'Bread',
+    image: 'assets/images/bread.jpg',
+    availableItem: 1,
+    discount: 0.45,
+    price: 10,
+  ),
+  FoodItem(
+    name: 'Cake',
+    image: 'assets/images/cake.jpg',
+    availableItem: 0,
+    discount: 0.45,
+    price: 20,
+  ),
+  FoodItem(
+    name: 'Water bottle',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 7,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+  FoodItem(
+    name: 'Water bottle 2',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 20,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+];
