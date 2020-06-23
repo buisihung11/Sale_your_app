@@ -3,6 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:sale_your_food/constrants.dart';
 import 'package:sale_your_food/screens/productDetail/productDetail.dart';
+import 'package:uuid/uuid.dart';
+
+var uuid = Uuid();
 
 class FoodItem extends StatelessWidget {
   final String name;
@@ -12,6 +15,7 @@ class FoodItem extends StatelessWidget {
   final int availableItem;
   final String image;
   final String remainTime;
+  final String id;
   const FoodItem({
     Key key,
     this.name,
@@ -21,17 +25,11 @@ class FoodItem extends StatelessWidget {
     this.image,
     this.unit = "piece",
     this.remainTime = "2 days",
+    this.id,
   }) : super(key: key);
 
-  dynamic _getItemLeftColor() {
-    if (availableItem == 0)
-      return noItemLeft;
-    else if (availableItem < 5)
-      return lowItemLeft;
-    else if (availableItem >= 5 && availableItem <= 10)
-      return mediumItemLeft;
-    else
-      return highItemLeft;
+  String getId() {
+    return uuid.v1().toString();
   }
 
   @override
@@ -41,7 +39,7 @@ class FoodItem extends StatelessWidget {
         print('Click item $name');
         Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => ProductDetailScreen(
-            name: name,
+            food: this,
           ),
         ));
       },
@@ -56,7 +54,7 @@ class FoodItem extends StatelessWidget {
             overflow: Overflow.visible,
             children: <Widget>[
               Hero(
-                tag: name,
+                tag: this,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Opacity(
@@ -70,62 +68,10 @@ class FoodItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                left: -15,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: _getItemLeftColor()['background'],
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                            color: _getItemLeftColor()['border-color'],
-                            width: 1),
-                      ),
-                      child: Text(
-                        '$availableItem $unit left',
-                        style: TextStyle(
-                          color: _getItemLeftColor()['color'],
-                          fontSize: 13,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(5, 5, 10, 5),
-                      margin: EdgeInsets.only(left: 10),
-                      decoration: BoxDecoration(
-                        color: _getItemLeftColor()['background'],
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                            color: _getItemLeftColor()['border-color'],
-                            width: 1),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            EvilIcons.clock,
-                            size: 13,
-                          ),
-                          Text(
-                            '$remainTime',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: _getItemLeftColor()['color'],
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              FoodItemBanners(
+                  availableItem: availableItem,
+                  unit: unit,
+                  remainTime: remainTime),
               Positioned(
                 bottom: 0,
                 left: 0,
@@ -244,6 +190,88 @@ class FoodItem extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class FoodItemBanners extends StatelessWidget {
+  const FoodItemBanners({
+    Key key,
+    @required this.availableItem,
+    @required this.unit,
+    @required this.remainTime,
+  }) : super(key: key);
+
+  final int availableItem;
+  final String unit;
+  final String remainTime;
+
+  dynamic _getItemLeftColor() {
+    if (availableItem == 0)
+      return noItemLeft;
+    else if (availableItem < 5)
+      return lowItemLeft;
+    else if (availableItem >= 5 && availableItem <= 10)
+      return mediumItemLeft;
+    else
+      return highItemLeft;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: -15,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+            margin: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: _getItemLeftColor()['background'],
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(
+                  color: _getItemLeftColor()['border-color'], width: 1),
+            ),
+            child: Text(
+              '$availableItem $unit left',
+              style: TextStyle(
+                color: _getItemLeftColor()['color'],
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(5, 5, 10, 5),
+            margin: EdgeInsets.only(left: 10),
+            decoration: BoxDecoration(
+              color: _getItemLeftColor()['background'],
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(
+                  color: _getItemLeftColor()['border-color'], width: 1),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  EvilIcons.clock,
+                  size: 13,
+                ),
+                Text(
+                  '$remainTime',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: _getItemLeftColor()['color'],
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

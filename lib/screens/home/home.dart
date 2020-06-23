@@ -38,7 +38,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xfffafafc),
       body: _screens.elementAt(_currentIndex),
       bottomNavigationBar: BottomBar(
         currentIndex: _currentIndex,
@@ -122,17 +122,18 @@ class _HomeScreenState extends State<HomeScreen> {
             Categories(),
             SizedBox(height: 15),
             // Food near you
-            // Align(
-            //   alignment: Alignment.topLeft,
-            //   child: HomeSection(
-            //     listItem: getRandomList(),
-            //   ),
-            // ),
             Align(
               alignment: Alignment.topLeft,
               child: HomeSection(
-                title: "Base on your saving",
-                listItem: getRandomList(),
+                listItem: getRandomList(list2),
+              ),
+            ),
+            SizedBox(height: 20,),
+            Align(
+              alignment: Alignment.topLeft,
+              child: HomeSection(
+                title: "Base on what you saved",
+                listItem: getRandomList(list),
               ),
             ),
             SizedBox(height: 20),
@@ -223,9 +224,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-List<Widget> getRandomList() {
-  list.shuffle();
-  List<Widget> newList = List.from(list);
+List<Widget> getRandomList(List<Widget> input) {
+  List<Widget> newList = List.from(input);
+  newList.shuffle();
   return newList;
 }
 
@@ -254,6 +255,38 @@ var list = [
   ),
   FoodItem(
     name: 'Water bottle 2',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 20,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+];
+var list2 = [
+  FoodItem(
+    name: 'Bread 2',
+    image: 'assets/images/bread.jpg',
+    availableItem: 1,
+    discount: 0.45,
+    price: 10,
+  ),
+  FoodItem(
+    name: 'Cake 2',
+    image: 'assets/images/cake.jpg',
+    availableItem: 0,
+    discount: 0.45,
+    price: 20,
+  ),
+  FoodItem(
+    name: 'Water bottle 2',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 7,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+  FoodItem(
+    name: 'Water bottle 3',
     image: 'assets/images/water_bottle.jpg',
     availableItem: 20,
     discount: 0.35,

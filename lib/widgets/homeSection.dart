@@ -34,17 +34,20 @@ class _HomeSectionState extends State<HomeSection> {
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 23,
                 ),
               ),
               Text(
                 'View All',
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(
+                  color: Color(0xFFceced0),
+                  fontSize: 12,
+                ),
               ),
             ],
           ),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 20),
         Container(
           height: 200,
           child: ListView(
