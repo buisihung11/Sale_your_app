@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:sale_your_food/constrants.dart';
 import 'package:sale_your_food/screens/productDetail/productDetail.dart';
+import 'package:sale_your_food/screens/productDetail/productDetailWithSilver.dart';
 import 'package:uuid/uuid.dart';
 
 var uuid = Uuid();
@@ -38,7 +39,7 @@ class FoodItem extends StatelessWidget {
       onTap: () {
         print('Click item $name');
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => ProductDetailScreen(
+          builder: (BuildContext context) => ProductDetailWithSilver(
             food: this,
           ),
         ));
