@@ -252,7 +252,7 @@ class WelcomeLogin extends StatelessWidget {
             child: Opacity(
               opacity: 1,
               child: Image.asset(
-                'assets/images/Supermarketworkers.gif',
+                'assets/images/save_food.png',
                 alignment: Alignment.center,
                 fit: BoxFit.cover,
               ),
