@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:sale_your_food/constants.dart';
+import 'package:sale_your_food/screens/login.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key key}) : super(key: key);
@@ -95,6 +96,7 @@ class ProfileScreen extends StatelessWidget {
                     icon: LineAwesomeIcons.alternate_sign_out,
                     text: 'Logout',
                     hasNavigation: false,
+                    screen: LoginScreen(),
                   ),
                 ],
               ),
@@ -110,15 +112,51 @@ class ProfileListItem extends StatelessWidget {
   final IconData icon;
   final text;
   final bool hasNavigation;
+  final StatelessWidget screen;
   const ProfileListItem({
     Key key,
     this.icon,
     this.text,
     this.hasNavigation = true,
+    this.screen = null,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var changeScreen = InkWell(
+      onTap: () {
+        print(this.text);
+        if (this.screen != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => this.screen),
+          );
+        }
+      },
+      child: Row(
+        children: <Widget>[
+          Icon(
+            this.icon,
+            size: kSpacingUnit.w * 2.5,
+          ),
+          SizedBox(
+            width: kSpacingUnit.w * 2.5,
+          ),
+          Text(
+            this.text,
+            style: kTitleTextStyle.copyWith(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          Spacer(),
+          if (this.hasNavigation)
+            Icon(
+              LineAwesomeIcons.angle_right,
+              size: kSpacingUnit.w * 2.5,
+            ),
+        ],
+      ),
+    );
     return Container(
       height: kSpacingUnit.w * 5,
       margin: EdgeInsets.symmetric(
@@ -133,34 +171,7 @@ class ProfileListItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(kSpacingUnit.w * 3),
         color: Theme.of(context).backgroundColor,
       ),
-      child: InkWell(
-        onTap: () {
-          print(this.text);
-        },
-        child: Row(
-          children: <Widget>[
-            Icon(
-              this.icon,
-              size: kSpacingUnit.w * 2.5,
-            ),
-            SizedBox(
-              width: kSpacingUnit.w * 2.5,
-            ),
-            Text(
-              this.text,
-              style: kTitleTextStyle.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Spacer(),
-            if (this.hasNavigation)
-              Icon(
-                LineAwesomeIcons.angle_right,
-                size: kSpacingUnit.w * 2.5,
-              ),
-          ],
-        ),
-      ),
+      child: changeScreen,
     );
   }
 }
