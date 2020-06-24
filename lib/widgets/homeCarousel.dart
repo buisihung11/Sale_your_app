@@ -76,14 +76,15 @@ class _HomeCarouselState extends State<HomeCarousel> {
           child: Container(
             padding: EdgeInsets.fromLTRB(5, 5, 15, 5),
             decoration: BoxDecoration(
-                color: Colors.redAccent,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(50),
-                  // bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50),
-                )),
+              color: Colors.redAccent,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50),
+                // bottomLeft: Radius.circular(50),
+                bottomRight: Radius.circular(50),
+              ),
+            ),
             child: Text(
-              'TOP\nDISCOUNT',
+              'HOT\nDEALS',
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

@@ -4,7 +4,10 @@ import 'package:sale_your_food/screens/home/widgets/index.dart';
 import 'package:sale_your_food/widgets/bottomBar.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
 import 'package:sale_your_food/widgets/homeCarousel.dart';
+import 'package:sale_your_food/widgets/homeSection.dart';
 import 'package:sale_your_food/widgets/restaunrant.dart';
+import 'package:showcaseview/showcase.dart';
+import 'package:showcaseview/showcase_widget.dart';
 
 import '../profile.dart';
 
@@ -20,7 +23,7 @@ class _RootScreenState extends State<RootScreen> {
     Text(
       'Page 2',
     ),
-    HomeScreen(),
+    ShowCaseHomeScreen(),
     ProfileScreen(),
   ];
 
@@ -35,7 +38,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xfffafafc),
       body: _screens.elementAt(_currentIndex),
       bottomNavigationBar: BottomBar(
         currentIndex: _currentIndex,
@@ -45,10 +48,47 @@ class _RootScreenState extends State<RootScreen> {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class ShowCaseHomeScreen extends StatelessWidget {
+  const ShowCaseHomeScreen({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ShowCaseWidget(
+        builder: Builder(builder: (context) => HomeScreen()),
+      ),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key key,
   }) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey _one = GlobalKey();
+  final GlobalKey _two = GlobalKey();
+  final GlobalKey _three = GlobalKey();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => ShowCaseWidget.of(context).startShowCase(
+        [
+          _one,
+          _two,
+          _three,
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,81 +98,42 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             // Header
-            HomeHeader(),
-            // Search
-            HomeSearch(),
-            SizedBox(height: 15),
+            Showcase(
+              key: _one,
+              description: "Search your needed food here.",
+              child: Container(
+                child: Column(
+                  children: <Widget>[
+                    HomeHeader(),
+                    // Search
+                    HomeSearch(),
+                    SizedBox(height: 15),
+                  ],
+                ),
+              ),
+            ),
             // Banner Carousel
-            HomeCarousel(),
+            Showcase(
+              key: _two,
+              description: "All hot discount will be apear here",
+              child: HomeCarousel(),
+            ),
             // Categories
             Categories(),
             SizedBox(height: 15),
             // Food near you
             Align(
               alignment: Alignment.topLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Food near you',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        Text(
-                          'View All',
-                          style: TextStyle(color: Colors.blue),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    height: 200,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        FoodItem(
-                          name: 'Bread',
-                          image: 'assets/images/bread.jpg',
-                          availableItem: 1,
-                          discount: 0.45,
-                          price: 10,
-                        ),
-                        FoodItem(
-                          name: 'Cake',
-                          image: 'assets/images/cake.jpg',
-                          availableItem: 0,
-                          discount: 0.45,
-                          price: 20,
-                        ),
-                        FoodItem(
-                          name: 'Water bottle',
-                          image: 'assets/images/water_bottle.jpg',
-                          availableItem: 7,
-                          discount: 0.35,
-                          price: 10,
-                          unit: "bottle",
-                        ),
-                        FoodItem(
-                          name: 'Water bottle',
-                          image: 'assets/images/water_bottle.jpg',
-                          availableItem: 20,
-                          discount: 0.35,
-                          price: 10,
-                          unit: "bottle",
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              child: HomeSection(
+                listItem: getRandomList(list2),
+              ),
+            ),
+            SizedBox(height: 20,),
+            Align(
+              alignment: Alignment.topLeft,
+              child: HomeSection(
+                title: "Base on what you saved",
+                listItem: getRandomList(list),
               ),
             ),
             SizedBox(height: 20),
@@ -222,3 +223,74 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+List<Widget> getRandomList(List<Widget> input) {
+  List<Widget> newList = List.from(input);
+  newList.shuffle();
+  return newList;
+}
+
+var list = [
+  FoodItem(
+    name: 'Bread',
+    image: 'assets/images/bread.jpg',
+    availableItem: 1,
+    discount: 0.45,
+    price: 10,
+  ),
+  FoodItem(
+    name: 'Cake',
+    image: 'assets/images/cake.jpg',
+    availableItem: 0,
+    discount: 0.45,
+    price: 20,
+  ),
+  FoodItem(
+    name: 'Water bottle',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 7,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+  FoodItem(
+    name: 'Water bottle 2',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 20,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+];
+var list2 = [
+  FoodItem(
+    name: 'Bread 2',
+    image: 'assets/images/bread.jpg',
+    availableItem: 1,
+    discount: 0.45,
+    price: 10,
+  ),
+  FoodItem(
+    name: 'Cake 2',
+    image: 'assets/images/cake.jpg',
+    availableItem: 0,
+    discount: 0.45,
+    price: 20,
+  ),
+  FoodItem(
+    name: 'Water bottle 2',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 7,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+  FoodItem(
+    name: 'Water bottle 3',
+    image: 'assets/images/water_bottle.jpg',
+    availableItem: 20,
+    discount: 0.35,
+    price: 10,
+    unit: "bottle",
+  ),
+];
