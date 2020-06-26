@@ -170,7 +170,7 @@ class LoginForm extends StatelessWidget {
             height: 50,
             child: RaisedButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => RootScreen()),
                 );
