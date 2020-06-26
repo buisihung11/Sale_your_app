@@ -35,52 +35,79 @@ class OrderDetailUnfinishedState extends State<OrderDetailUnfinished>
           alignment: Alignment.topCenter,
           child: Column(
             children: <Widget>[
-              Container(
-                alignment: Alignment.topCenter,
-                width: MediaQuery.of(context).size.width,
-                height: 120,
-                color: Colors.amber[100],
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Text(
-                        'TOTAL',
-                        style: TextStyle(
-                          //color: Colors.orange[200],
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+              Row(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width / 3,
+                    height: 120,
+                    color: Colors.deepOrange[200],
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Pickup Location",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      ),
+                        Text(
+                          "7/11, Fpt University",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 5, right: 5, bottom: 5),
-                      child: Text(
-                        "30.00\$",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                  ),
+                  Container(
+                    alignment: Alignment.topCenter,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    height: 120,
+                    color: Colors.amber[100],
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Text(
+                            'TOTAL',
+                            style: TextStyle(
+                              //color: Colors.orange[200],
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(33)),
-                        color: Colors.red,
-                      ),
-                      child: Text(
-                        'Unfinished',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 5, right: 5, bottom: 5),
+                          child: Text(
+                            "30.00\$",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
+                        Container(
+                          padding: EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(33)),
+                            color: Colors.red,
+                          ),
+                          child: Text(
+                            'Unfinished',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               TabBar(
                 labelColor: Colors.amber[600],
@@ -103,7 +130,7 @@ class OrderDetailUnfinishedState extends State<OrderDetailUnfinished>
                 ],
               ),
               Container(
-                color: Colors.blueGrey[50],
+                //color: Colors.blueGrey[50],
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 1.6,
                 alignment: Alignment.center,
@@ -211,7 +238,7 @@ class OrderDetailUnfinishedState extends State<OrderDetailUnfinished>
                               ],
                             ),
                           ),
-                          //Divider(),
+                          Divider(),
                           Container(
                             color: Colors.deepOrange[50],
                             child: Row(
