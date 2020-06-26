@@ -1,5 +1,9 @@
+import 'dart:math';
+
+import 'package:countdown_flutter/countdown_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_countdown_timer/countdown_timer.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:sale_your_food/constrants.dart';
 import 'package:sale_your_food/screens/productDetail/productDetail.dart';
@@ -221,6 +225,7 @@ class FoodItemBanners extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var ran = new Random();
     return Positioned(
       left: -15,
       child: Column(
@@ -248,26 +253,49 @@ class FoodItemBanners extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(5, 5, 10, 5),
             margin: EdgeInsets.only(left: 10),
             decoration: BoxDecoration(
-              color: _getItemLeftColor()['background'],
+              color: Color(0xff0700a6),
               borderRadius: BorderRadius.circular(5),
               border: Border.all(
-                  color: _getItemLeftColor()['border-color'], width: 1),
+                color: Color(0xffdde6fb),
+                width: 2,
+              ),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.centerRight,
+                colors: [Color(0xff2193b0),Color(0xff6dd5ed)],
+              ),
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: Color(0xffdbe8fd),
+              //     spreadRadius: 2,
+              //     blurRadius: 5,
+              //     offset: Offset(3, 3), // changes position of shadow
+              //   ),
+              // ],
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Icon(
-                  EvilIcons.clock,
+                  Entypo.flash,
                   size: 13,
+                  color: Colors.white,
                 ),
-                Text(
-                  '$remainTime',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: _getItemLeftColor()['color'],
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                  ),
+                CountdownFormatted(
+                  duration: Duration(seconds: ran.nextInt(60), minutes: ran.nextInt(60), days: ran.nextInt(2)),
+                  onFinish: () {
+                    print('finished!');
+                  },
+                  builder: (BuildContext ctx, String remaining) {
+                    return Text(
+                      '${remaining}',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
