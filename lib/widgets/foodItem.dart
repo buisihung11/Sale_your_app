@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:countdown_flutter/countdown_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_countdown_timer/countdown_timer.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:sale_your_food/constrants.dart';
 import 'package:sale_your_food/screens/productDetail/productDetail.dart';
