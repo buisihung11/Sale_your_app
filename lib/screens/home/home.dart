@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sale_your_food/screens/history.dart';
 import 'package:sale_your_food/screens/home/widgets/index.dart';
 import 'package:sale_your_food/widgets/bottomBar.dart';
 import 'package:sale_your_food/widgets/foodItem.dart';
@@ -20,9 +21,7 @@ class RootScreen extends StatefulWidget {
 
 class _RootScreenState extends State<RootScreen> {
   static const List<Widget> _screens = <Widget>[
-    Text(
-      'Page 2',
-    ),
+    HistoryScreen(),
     ShowCaseHomeScreen(),
     ProfileScreen(),
   ];
