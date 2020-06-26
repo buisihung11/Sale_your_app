@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Align(
               alignment: Alignment.topLeft,
               child: HomeSection(
-                title: "Base on what you saved",
+                title: "Recommend for you",
                 listItem: getRandomList(list),
               ),
             ),
@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
+                      children: <Widget>[ 
                         Text(
                           'Market around you',
                           textAlign: TextAlign.start,
