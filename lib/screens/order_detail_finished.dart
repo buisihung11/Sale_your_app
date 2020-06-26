@@ -37,32 +37,33 @@ class OrderDetailFinishedState extends State<OrderDetailFinished>
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width / 3,
-                    height: 120,
-                    color: Colors.deepOrange[200],
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Pickup Location",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Text(
-                          "7/11, Fpt University",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   width: MediaQuery.of(context).size.width / 3,
+                  //   height: 120,
+                  //   color: Colors.deepOrange[200],
+                  //   child: Column(
+                  //     children: <Widget>[
+                  //       Padding(
+                  //         padding: const EdgeInsets.all(8.0),
+                  //         child: Text(
+                  //           "Pickup Location",
+                  //           style: TextStyle(fontWeight: FontWeight.bold),
+                  //         ),
+                  //       ),
+                  //       Text(
+                  //         "7/11, Fpt University",
+                  //         textAlign: TextAlign.center,
+                  //         style: TextStyle(
+                  //           fontSize: 18,
+                  //         ),
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
                   Container(
                     alignment: Alignment.topCenter,
-                    width: MediaQuery.of(context).size.width / 1.5,
+                    //width: MediaQuery.of(context).size.width / 1.5,
+                    width: MediaQuery.of(context).size.width,
                     height: 120,
                     color: Colors.amber[100],
                     child: Column(

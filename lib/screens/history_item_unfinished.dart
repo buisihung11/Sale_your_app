@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'order_detail_unfinished.dart';
+import 'package:sale_your_food/screens/order_detail_unfinished.dart';
 
 class HistoryItemUnfinished extends StatelessWidget {
   const HistoryItemUnfinished({
