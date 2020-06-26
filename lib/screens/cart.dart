@@ -64,7 +64,7 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.trash),
+                                icon: Image.asset('assets/images/icons/delete.png'),
                                 onPressed: () {},
                               ),
                             ),
@@ -88,7 +88,7 @@ class CartScreen extends StatelessWidget {
                           children: <Widget>[
                             Container(
                               child: Text(
-                                "\$8",
+                                 "\$10 ",
                                 style: TextStyle(
                                   fontSize: 18,
                                   decoration: TextDecoration.lineThrough,
@@ -97,22 +97,19 @@ class CartScreen extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(5),
-                              child: Icon(FontAwesome.long_arrow_right),
-                            ),
+                            
                             Expanded(
                               child: Container(
                                 child: Text(
                                   "\$4",
-                                  style: TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 20),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.plus_square),
+                                icon: Icon(Feather.minus_square),
                                 onPressed: () {},
                               ),
                             ),
@@ -124,7 +121,7 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.minus_square),
+                                icon: Icon(Feather.plus_square),
                                 onPressed: () {},
                               ),
                             ),
@@ -174,7 +171,7 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.trash),
+                                icon: Image.asset('assets/images/icons/delete.png'),
                                 onPressed: () {},
                               ),
                             ),
@@ -198,7 +195,7 @@ class CartScreen extends StatelessWidget {
                           children: <Widget>[
                             Container(
                               child: Text(
-                                "\$10",
+                                "\$10 ",
                                 style: TextStyle(
                                   fontSize: 18,
                                   decoration: TextDecoration.lineThrough,
@@ -207,10 +204,7 @@ class CartScreen extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(5),
-                              child: Icon(FontAwesome.long_arrow_right),
-                            ),
+                        
                             Expanded(
                               child: Container(
                                 child: Text(
@@ -222,19 +216,19 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.plus_square),
+                                icon: Icon(Feather.minus_square),
                                 onPressed: () {},
                               ),
                             ),
                             Container(
                               child: Text(
                                 "2",
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(fontSize: 20),
                               ),
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.minus_square),
+                                icon: Icon(Feather.plus_square),
                                 onPressed: () {},
                               ),
                             ),
@@ -284,7 +278,7 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.trash),
+                                icon: Image.asset('assets/images/icons/delete.png'),
                                 onPressed: () {},
                               ),
                             ),
@@ -308,7 +302,7 @@ class CartScreen extends StatelessWidget {
                           children: <Widget>[
                             Container(
                               child: Text(
-                                "\$9",
+                                "\$9 ",
                                 style: TextStyle(
                                   fontSize: 18,
                                   decoration: TextDecoration.lineThrough,
@@ -317,22 +311,19 @@ class CartScreen extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(5),
-                              child: Icon(FontAwesome.long_arrow_right),
-                            ),
+                      
                             Expanded(
                               child: Container(
                                 child: Text(
                                   "\$6",
-                                  style: TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 20),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.plus_square),
+                                icon: Icon(Feather.minus_square),
                                 onPressed: () {},
                               ),
                             ),
@@ -344,7 +335,7 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.minus_square),
+                                icon: Icon(Feather.plus_square),
                                 onPressed: () {},
                               ),
                             ),
@@ -394,7 +385,7 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.trash),
+                                icon: Image.asset('assets/images/icons/delete.png'),
                                 onPressed: () {},
                               ),
                             ),
@@ -418,7 +409,7 @@ class CartScreen extends StatelessWidget {
                           children: <Widget>[
                             Container(
                               child: Text(
-                                "\$4",
+                                "\$4 ",
                                 style: TextStyle(
                                   fontSize: 18,
                                   decoration: TextDecoration.lineThrough,
@@ -427,22 +418,19 @@ class CartScreen extends StatelessWidget {
                                 textAlign: TextAlign.left,
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(5),
-                              child: Icon(FontAwesome.long_arrow_right),
-                            ),
+                           
                             Expanded(
                               child: Container(
                                 child: Text(
                                   "\$2",
-                                  style: TextStyle(fontSize: 18),
+                                  style: TextStyle(fontSize: 20),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.plus_square),
+                                icon: Icon(Feather.minus_square),
                                 onPressed: () {},
                               ),
                             ),
@@ -454,7 +442,7 @@ class CartScreen extends StatelessWidget {
                             ),
                             Container(
                               child: IconButton(
-                                icon: Icon(Feather.minus_square),
+                                icon: Icon(Feather.plus_square),
                                 onPressed: () {},
                               ),
                             ),
@@ -470,22 +458,14 @@ class CartScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: new Container(
+        margin: EdgeInsets.only(left:10, bottom: 5),
         color: Colors.white70,
         child: Row(
           children: <Widget>[
-            Expanded(
-                child: ListTile(
-              title: new Text(
-                "Total:",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
-              subtitle: new Text(
-                "\$18",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            )),
+            
             Expanded(
               child: new MaterialButton(
+              // padding: EdgeInsets.only(left: 10),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 onPressed: () {
@@ -503,10 +483,27 @@ class CartScreen extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
               ),
             ),
+          Expanded(
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text(
+                      "Total:",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    Text(
+                      "\$18 ",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.orange),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
