@@ -141,7 +141,7 @@ class OrderDetailUnfinishedState extends State<OrderDetailUnfinished>
                       child: Column(
                         children: <Widget>[
                           Container(
-                            color: Colors.deepOrange[50],
+                            //color: Colors.deepOrange[50],
                             child: Row(
                               children: <Widget>[
                                 Container(
@@ -240,7 +240,7 @@ class OrderDetailUnfinishedState extends State<OrderDetailUnfinished>
                           ),
                           Divider(),
                           Container(
-                            color: Colors.deepOrange[50],
+                            //color: Colors.deepOrange[50],
                             child: Row(
                               children: <Widget>[
                                 Container(
@@ -336,6 +336,7 @@ class OrderDetailUnfinishedState extends State<OrderDetailUnfinished>
                               ],
                             ),
                           ),
+                          Divider(),
                         ],
                       ),
                     ),
