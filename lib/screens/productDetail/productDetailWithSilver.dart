@@ -422,7 +422,7 @@ class _ProductDetailBottomState extends State<ProductDetailBottom> {
                     child: Row(
                       children: <Widget>[
                         Text(
-                          "Save it now",
+                          "Add to cart",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
