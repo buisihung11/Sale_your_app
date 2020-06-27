@@ -147,14 +147,14 @@ class LoginForm extends StatelessWidget {
               return value.isEmpty ? 'Please enter password' : null;
             },
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 10),
           Align(
               alignment: Alignment.centerRight,
               child: Padding(
                 padding: const EdgeInsets.only(
                   right: 20,
-                  top: 15,
-                  bottom: 15,
+                  top: 12,
+                  bottom: 12,
                 ),
                 child: Text(
                   'Forgot Password',
